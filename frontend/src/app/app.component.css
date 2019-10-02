@@ -1,0 +1,35 @@
+.jumbotron{
+    background: transparent;
+    margin-bottom: -3rem;
+    border-radius: .3rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+h6 {
+    margin-bottom: -0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+
+@media (max-width: 600px){
+    .py-3{
+        font-size: small;
+    }
+    .swal-tittle {
+        font-size: 13px;
+    }
+    .swal-text {
+        font-size: 13px;
+    }
+    .navbar-dark .navbar-nav .nav-link {
+        font-size: smaller;
+    }
+    h6{
+        font-size: smaller;
+    }
+}
+

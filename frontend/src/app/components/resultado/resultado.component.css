@@ -1,0 +1,81 @@
+table thead th  {
+    color: #fff;
+    background-color: #343a40;
+    border-color: black;
+    text-align: center;
+}
+
+table td{
+    border: 1px solid #343a40;
+    text-align: center;
+ }
+
+ .table-bordered td, .table-bordered th {
+    border: 1px solid #343a40;
+    text-align: center;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 1.25rem;
+  min-height: 300px;
+}
+
+#div1{
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 600px){
+    .navbar-expand-md .navbar-nav .nav-link {
+        padding-right: .5rem;
+        padding-left: .5rem;
+        width: 100%;
+      }
+    .navbar-expand-md .navbar-toggler {
+        display: block;
+      }
+    .row{
+      text-align: left;
+      width: 100%;
+      margin-left: 0px;
+      }
+      .row button{
+        font-size: 12px;
+      }
+      .form-control{
+        display: block;
+        width: 100%;
+      }
+      #micanvas{
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+      }
+      .table th, td, .table-bordered {
+          font-size: 10px;
+      }
+      h5, h6{
+        font-size: 15px;
+       }
+      .py-3{
+        position: inherit;
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+      }
+      .btn-lg{
+        font-size: 12px;
+      }
+      #imagenAdvertencia{
+        height: 120px;
+        width: 120px;
+      }
+    }
+
+    @media (max-width: 1200px){
+          #micanvas{
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+          }
+        }
