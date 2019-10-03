@@ -2,8 +2,7 @@ const Zapatas = require('../models/zapatas');
 const Excel = require('../models/excel');
 const Bases = require('../models/bases');
 const Funciones = require('../funciones/funcionesZapatas')
-var myIp = require('ip');
-
+var ip = require('ip');
 
 const zapatasCtrl = {};
 
@@ -39,11 +38,11 @@ var Vcon = [];
 //Metodo para vaciar zapatas!
 zapatasCtrl.darZapata = async (req, res, next) => {
 
-    var ip = myIp.address();
+    // var ip = json.ip;
 
-    const zapatas = await Zapatas.findOne({ ip: ip })
+    //         const zapatas = await Zapatas.find({ ip: ip })
 
-    // const zapatas = await Zapatas.findOne();
+    const zapatas = await Zapatas.findOne();
     listazapatas = zapatas;
     // await Zapatas.remove();
     var tamaño = listazapatas.length;
@@ -57,9 +56,7 @@ zapatasCtrl.darZapata = async (req, res, next) => {
 };
 
 zapatasCtrl.seleccionarZapata = async (req, res, next) => {
-    var ip = myIp.address();
-
-    const zapatas = await Zapatas.findOne({ ip: ip })
+    const zapatas = await Zapatas.find();
     var numero = req.body.numeroZapata;
     listazapatas = zapatas;
     res.json(listazapatas[numero]);
@@ -72,9 +69,7 @@ zapatasCtrl.darBases = async (req, res, next) => {
 };
 
 darListaZapata = async (req, res, next) => {
-    var ip = myIp.address();
-
-    const zapatas = await Zapatas.findOne({ ip: ip })
+    const zapatas = await Zapatas.find();
     listazapatas = zapatas;
     ////console.log("Zapatas", zapatas);
     ////console.log("Lista de zapatas:", listazapatas);
@@ -83,9 +78,7 @@ darListaZapata = async (req, res, next) => {
 
 //Se devuelven todas las zapatas, y se iguala la lista Array
 zapatasCtrl.getZapatas = async (req, res, next) => {
-    var ip = myIp.address();
-
-    const zapatas = await Zapatas.findOne({ ip: ip })
+    const zapatas = await Zapatas.find();
     res.json(zapatas);
 
     // await Zapatas.remove();
@@ -103,9 +96,7 @@ zapatasCtrl.eliminarZapatas = async (req, res, next) => {
 
     //console.log("------------AQUI EMPIEZA EL ELIMINAR RESULTADO")
 
-    var ip = myIp.address();
-
-    const zapatas = await Zapatas.findOne({ ip: ip })
+    const zapatas = await Zapatas.find();
     listazapatas = zapatas;
 
     //console.log("Tamaño :" + listazapatas.length);
@@ -117,7 +108,7 @@ zapatasCtrl.eliminarZapatas = async (req, res, next) => {
 
     //console.log("id: " + id);
 
-    await Zapatas.deleteOne({"_id": id, "ip": ip});
+    await Zapatas.deleteOne({"_id": id});
 
 
     //console.log("Tamaño after :" + listazapatas.length);
@@ -126,9 +117,7 @@ zapatasCtrl.eliminarZapatas = async (req, res, next) => {
 
 zapatasCtrl.bases = async (req, res, next) => {
     //Datos que se traen de las zapatas
-    var ip = myIp.address();
-
-    const zapatas = await Zapatas.findOne({ ip: ip })
+    const zapatas = await Zapatas.find();
     listazapatas = zapatas;
 
 
@@ -345,10 +334,6 @@ zapatasCtrl.agregarBases = async (req, res, next) => {
 };
 
 zapatasCtrl.sumar = async (req, res, next) => {
-
-    // var ip = myIp.address();
-
-    // const num = await Zapatas.findOne({ ip: ip })
 
     const num = await Zapatas.find();
     listaZapatas = num;
