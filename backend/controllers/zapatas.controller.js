@@ -334,8 +334,7 @@ zapatasCtrl.sumar = async (req, res, next) => {
     listaZapatas = num;
 
     var id;
-
-    var ip = ip.address();
+    
 
     if (listaZapatas.length == 0) {
         id = 1;
@@ -350,7 +349,6 @@ zapatasCtrl.sumar = async (req, res, next) => {
     }
     const zapatas = new Zapatas({
         _id: id,
-        // ip: ip,
         pesoSuelo: req.body.pesoSuelo,
         pesoConcreto: req.body.pesoConcreto,
         diametroAcero: req.body.diametroAcero,
