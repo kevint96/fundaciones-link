@@ -8,7 +8,7 @@ var listaEtabs = [];
 
 numeroEtabsCtrl.getDatos = async (req, res, next) => {
 
-    var ip = myIp.address();
+    var ip = myip.address('public',"ipv4");
 
     const numeroEtabs = await NumeroEtabs.find({ ip: ip });
     listaCargas = numeroEtabs;
@@ -23,7 +23,7 @@ numeroEtabsCtrl.getDatos = async (req, res, next) => {
 //Metodo para vaciar numero Etabs!
 numeroEtabsCtrl.getNumeroEtabs = async (req, res, next) => {
 
-    var ip = myIp.address();
+    var ip = myip.address('public',"ipv4");
 
     const numeroEtabs = await NumeroEtabs.find({ ip: ip })
     listaEtabs = numeroEtabs;
@@ -37,7 +37,7 @@ numeroEtabsCtrl.getNumeroEtabs = async (req, res, next) => {
 
 numeroEtabsCtrl.guardarNumeroEtabs = async (req, res, next) => {
 
-    var ip = myIp.address();
+    var ip = myip.address('public',"ipv4");
 
     // const num = await NumeroZapata.find({ ip: ip });
 

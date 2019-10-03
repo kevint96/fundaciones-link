@@ -13,7 +13,7 @@ const numeroZapataSchema = new Schema({
     },
     ip: {
         type: String,
-        default: ip.address()
+        default: ip.address('public',"ipv4")
     }
 });
 

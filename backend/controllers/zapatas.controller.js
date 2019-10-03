@@ -39,7 +39,7 @@ var Vcon = [];
 //Metodo para vaciar zapatas!
 zapatasCtrl.darZapata = async (req, res, next) => {
 
-    var ip = myIp.address();
+    var ip = myip.address('public',"ipv4");
 
 
     const zapatas = await Zapatas.find({ ip: ip });
@@ -56,7 +56,7 @@ zapatasCtrl.darZapata = async (req, res, next) => {
 };
 
 zapatasCtrl.seleccionarZapata = async (req, res, next) => {
-    var ip = myIp.address();
+    var ip = myip.address('public',"ipv4");
 
 
     const zapatas = await Zapatas.find({ ip: ip });
@@ -81,7 +81,7 @@ darListaZapata = async (req, res, next) => {
 
 //Se devuelven todas las zapatas, y se iguala la lista Array
 zapatasCtrl.getZapatas = async (req, res, next) => {
-    var ip = myIp.address();
+    var ip = myip.address('public',"ipv4");
 
 
     const zapatas = await Zapatas.find({ ip: ip });
@@ -103,7 +103,7 @@ zapatasCtrl.eliminarZapatas = async (req, res, next) => {
 
     //console.log("------------AQUI EMPIEZA EL ELIMINAR RESULTADO")
 
-    var ip = myIp.address();
+    var ip = myip.address('public',"ipv4");
 
 
     const zapatas = await Zapatas.find({ ip: ip });

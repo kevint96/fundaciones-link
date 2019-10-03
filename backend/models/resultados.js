@@ -90,7 +90,7 @@ const resultadosSchema = new Schema({
     },
     ip: {
         type: String,
-        default: ip.address()
+        default: ip.address('public',"ipv4")
     }
 });
 

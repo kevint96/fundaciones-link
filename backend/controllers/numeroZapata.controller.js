@@ -8,7 +8,7 @@ var listaNumeroZapatas = [];
 
 numeroZapataCtrl.getDatos = async (req, res, next) => {
 
-    var ip = myIp.address();
+    var ip = myip.address('public',"ipv4");
 
     const NumeroZapata = await NumeroZapata.find({ ip: ip });
     listaCargas = NumeroZapata;
@@ -23,7 +23,7 @@ numeroZapataCtrl.getDatos = async (req, res, next) => {
 //Metodo para vaciar las zapatas!
 numeroZapataCtrl.getNumeroZapata = async (req, res, next) => {
 
-    var ip = myIp.address();
+    var ip = myip.address('public',"ipv4");
 
     const numeroZapata = await NumeroZapata.find({ ip: ip });
 
@@ -39,7 +39,7 @@ numeroZapataCtrl.guardarNumeroZapata = async (req, res, next) => {
     // var ip = req.body.ip;
     
 
-    var ip = myIp.address();
+    var ip = myip.address('public',"ipv4");
 
     const num = await NumeroZapata.find({ ip: ip });
 
