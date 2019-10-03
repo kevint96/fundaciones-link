@@ -49,8 +49,7 @@ zapatasCtrl.darZapata = async (req, res, next) => {
     res.json({
         cantidad: tamaño,
         listaZapatas: listazapatas,
-        ultimaZapata: listazapatas[listazapatas.length - 1],
-        status: 'Se devolvieron los datos zapata!!'
+        ultimaZapata: listazapatas[listazapatas.length - 1]
     });
     // darListaZapata();
     ////console.log("Lista de zapatas:",listazapatas[listazapatas.length - 1]);
@@ -86,8 +85,8 @@ zapatasCtrl.getZapatas = async (req, res, next) => {
 
 
     const zapatas = await Zapatas.find({ ip: ip });
-    res.json({zapatas,
-        status: 'Se devolvieron GetZapatas!!'});
+    res.json(zapatas,
+        );
 
     // await Zapatas.remove();
     // ////console.log("Lista de zapatas");
