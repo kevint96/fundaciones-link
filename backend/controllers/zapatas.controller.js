@@ -57,7 +57,10 @@ zapatasCtrl.darZapata = async (req, res, next) => {
 };
 
 zapatasCtrl.seleccionarZapata = async (req, res, next) => {
-    const zapatas = await Zapatas.find();
+    var ip = myIp.address();
+
+
+    const zapatas = await Zapatas.find({ ip: ip });
     var numero = req.body.numeroZapata;
     listazapatas = zapatas;
     res.json(listazapatas[numero]);
@@ -79,8 +82,12 @@ darListaZapata = async (req, res, next) => {
 
 //Se devuelven todas las zapatas, y se iguala la lista Array
 zapatasCtrl.getZapatas = async (req, res, next) => {
-    const zapatas = await Zapatas.find();
-    res.json(zapatas);
+    var ip = myIp.address();
+
+
+    const zapatas = await Zapatas.find({ ip: ip });
+    res.json({zapatas,
+        status: 'Se devolvieron GetZapatas!!'});
 
     // await Zapatas.remove();
     // ////console.log("Lista de zapatas");
