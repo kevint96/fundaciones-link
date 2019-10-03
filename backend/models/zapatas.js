@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const zapatasSchema = new Schema({
     _id: { type: Number },
-    // ip: {type: String},
+    ip: {type: String},
     pesoSuelo: { type: Number, required: true},
     pesoConcreto: { type: Number, required: true},
     diametroAcero: { type: Number, required: true},
