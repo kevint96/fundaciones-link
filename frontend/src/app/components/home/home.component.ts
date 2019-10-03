@@ -236,12 +236,12 @@ export class HomeComponent implements OnInit {
       if(this.paso == true)
       {
        document.getElementById('div1').style.display = 'block';
-       swal("Datos etabs!", "Se han leido correctamente los datos de etabs!", "success");
+       swal("Datos!", "Se han leido correctamente los datos de excel!", "success");
        this.habilitar = false;
       }
       else{
         document.getElementById('div1').style.display = 'none';
-       swal("Datos etabs!", "Hubo un error en la lectura de datos!", "error");
+       swal("Error de lectura!", "Hubo un error en la lectura de datos!", "error");
        this.habilitar = true;
       }
     }
