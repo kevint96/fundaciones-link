@@ -25,34 +25,36 @@ export class ZapatasService {
   selectedBases: Bases[];
   bases: Bases;
 
+  //http://localhost:3000
+
   
   //GET
-  readonly URL_API = 'http://localhost:3000/api/zapatas';
-  readonly URL_BAS = 'http://localhost:3000/api/zapatas/bases';
+  readonly URL_API = '/api/zapatas';
+  readonly URL_BAS = '/api/zapatas/bases';
   //GET
-  readonly URL_ZAP = 'http://localhost:3000/api/zapatas/darZapata';
-  readonly SEL_ZAP = 'http://localhost:3000/api/zapatas/seleccionarZapata';
+  readonly URL_ZAP = '/api/zapatas/darZapata';
+  readonly SEL_ZAP = '/api/zapatas/seleccionarZapata';
   //GET
-  readonly URL_EXC = 'http://localhost:3000/api/excel';
-  readonly URL_DEV_CAR_EST = 'http://localhost:3000/api/excel/establecer';
-  readonly SEL_CAR = 'http://localhost:3000/api/excel/seleccionarCarga';
+  readonly URL_EXC = '/api/excel';
+  readonly URL_DEV_CAR_EST = '/api/excel/establecer';
+  readonly SEL_CAR = '/api/excel/seleccionarCarga';
   //GET
-  readonly DAR_ETABS = 'http://localhost:3000/api/numeroEtabs/darNumeroEtabs';
-  readonly GUARDAR_ETABS = 'http://localhost:3000/api/numeroEtabs/guardarNumeroEtabs';
-  readonly GUARDAR_RESULT = 'http://localhost:3000/api/resultados/guardarResultados';
-  readonly GUARDAR_RESULT_PED = 'http://localhost:3000/api/resultados/guardarResultadosPedestal';
-  readonly ELIMINAR_RESULTADOS = 'http://localhost:3000/api/resultados/eliminarResultados';
-  readonly ELIMINAR_ZAPATAS = 'http://localhost:3000/api/zapatas/eliminarZapatas';
+  readonly DAR_ETABS = '/api/numeroEtabs/darNumeroEtabs';
+  readonly GUARDAR_ETABS = '/api/numeroEtabs/guardarNumeroEtabs';
+  readonly GUARDAR_RESULT = '/api/resultados/guardarResultados';
+  readonly GUARDAR_RESULT_PED = '/api/resultados/guardarResultadosPedestal';
+  readonly ELIMINAR_RESULTADOS = '/api/resultados/eliminarResultados';
+  readonly ELIMINAR_ZAPATAS = '/api/zapatas/eliminarZapatas';
   //GET
-  readonly DAR_RESULT = 'http://localhost:3000/api/resultados/darResultados';
+  readonly DAR_RESULT = '/api/resultados/darResultados';
   //GET
-  readonly DAR_NUM_ZAP = 'http://localhost:3000/api/numeroZapata/darNumeroZapata';
-  readonly GUARDAR_NUM_ZAP = 'http://localhost:3000/api/numeroZapata/guardarNumeroZapata';
-  readonly URL_EXC_BASES = 'http://localhost:3000/api/excel/darBases';
-  readonly URL_AGR_BASES = 'http://localhost:3000/api/bases/agregarBase';
-  readonly URL_CAL_BASES = 'http://localhost:3000/api/bases/calcularBase';
+  readonly DAR_NUM_ZAP = '/api/numeroZapata/darNumeroZapata';
+  readonly GUARDAR_NUM_ZAP = '/api/numeroZapata/guardarNumeroZapata';
+  readonly URL_EXC_BASES = '/api/excel/darBases';
+  readonly URL_AGR_BASES = '/api/bases/agregarBase';
+  readonly URL_CAL_BASES = '/api/bases/calcularBase';
   //GET
-  readonly URL_DAR_BASES = 'http://localhost:3000/api/bases/';
+  readonly URL_DAR_BASES = '/api/bases/';
   readonly RUTA_IP = 'https://jsonip.com/?callback';
 
   constructor(private http: HttpClient) {

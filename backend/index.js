@@ -55,7 +55,7 @@ app.use('/api/numeroEtabs', numeroEtabs);
 app.use('/api/numeroZapata', numeroZapata);
 app.use('/api/resultados', resultados);
 
-// app.use(express.static(path.join(__dirname, 'dist/fundaciones')));
+app.use(express.static(path.join(__dirname, 'dist/fundaciones')));
 
 app.listen(app.get('port'),() =>{
         console.log("Servidor escuchando en el puerto", app.get('port'));
