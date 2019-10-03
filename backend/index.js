@@ -8,7 +8,7 @@ const numeroEtabs = require('./routes/numeroEtabs');
 const numeroZapata = require('./routes/numeroZapata');
 const resultados = require('./routes/resultados');
 const path = require('path');
-
+var ip = require('ip');
 
 //Se debe inicializar en una consola aparte el comando sudo mongod para que corra en el servidor!
 const { mongoose } = require('./database/database');
@@ -60,6 +60,8 @@ app.use(express.static(path.join(__dirname, 'dist/fundaciones')));
 
 app.listen(app.get('port'),() =>{
         console.log("Servidor escuchando en el puerto", app.get('port'));
+        console.log("Direccion: " ,ip.address('private',"ipv4"))
+        console.log("Direccion: " ,ip.address('public',"ipv4"))
     });
 
 
