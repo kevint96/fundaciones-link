@@ -350,7 +350,7 @@ zapatasCtrl.sumar = async (req, res, next) => {
     }
     const zapatas = new Zapatas({
         _id: id,
-        ip: ip,
+        // ip: ip,
         pesoSuelo: req.body.pesoSuelo,
         pesoConcreto: req.body.pesoConcreto,
         diametroAcero: req.body.diametroAcero,
