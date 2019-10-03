@@ -4,11 +4,11 @@ var ip = require('ip');
 
 const zapatasSchema = new Schema({
     _id: { type: Number },
-    ip: {
-        type: String,
-        default: ip.address(),
-        index: true //设置验证码的有效时间为 10 分钟
-        },
+    // ip: {
+    //     type: String,
+    //     default: ip.address(),
+    //     index: true //设置验证码的有效时间为 10 分钟
+    //     },
     pesoSuelo: { type: Number, required: true},
     pesoConcreto: { type: Number, required: true},
     diametroAcero: { type: Number, required: true},
