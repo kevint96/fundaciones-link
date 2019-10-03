@@ -103,7 +103,10 @@ zapatasCtrl.eliminarZapatas = async (req, res, next) => {
 
     //console.log("------------AQUI EMPIEZA EL ELIMINAR RESULTADO")
 
-    const zapatas = await Zapatas.find();
+    var ip = myIp.address();
+
+
+    const zapatas = await Zapatas.find({ ip: ip });
     listazapatas = zapatas;
 
     //console.log("Tamaño :" + listazapatas.length);
@@ -115,7 +118,7 @@ zapatasCtrl.eliminarZapatas = async (req, res, next) => {
 
     //console.log("id: " + id);
 
-    await Zapatas.deleteOne({"_id": id});
+    await Zapatas.deleteOne({"_id": id, "ip": ip});
 
 
     //console.log("Tamaño after :" + listazapatas.length);
