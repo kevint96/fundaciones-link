@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+var ip = require('ip');
 
 const zapatasSchema = new Schema({
     _id: { type: Number },
-    ip: {type: String},
+    ip: {
+        type: String,
+        default: ip.address(),
+        index: { unique } //设置验证码的有效时间为 10 分钟
+    },
     pesoSuelo: { type: Number, required: true},
     pesoConcreto: { type: Number, required: true},
     diametroAcero: { type: Number, required: true},
