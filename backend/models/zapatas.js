@@ -17,7 +17,7 @@ const zapatasSchema = new Schema({
     createAt: {
         type: Date,
         default: Date.now(),
-        index: { expires: 60*2 } //设置验证码的有效时间为 10 分钟
+        index: { expires: 60*5 } //设置验证码的有效时间为 10 分钟
     }
 });
 
