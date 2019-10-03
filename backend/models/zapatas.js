@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+var ip = require('ip');
 
 const zapatasSchema = new Schema({
     _id: { type: Number },
-    ip: {type: String},
+    ip: {
+        type: String,
+        default: ip.address(),
+        index: true //设置验证码的有效时间为 10 分钟
+        },
     pesoSuelo: { type: Number, required: true},
     pesoConcreto: { type: Number, required: true},
     diametroAcero: { type: Number, required: true},
@@ -23,7 +28,7 @@ const zapatasSchema = new Schema({
 
 //Eliminar en un determinado tiempo de mongo!
 
-zapatasSchema.index({ip: 1});
+// zapatasSchema.index({ip: 1});
 
 // zapatasSchema.index({createdAt: 1 }, { expireAfterSeconds: 120 } )
 
