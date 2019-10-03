@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-// var ip = require('ip');
+var ip = require('ip');
 
 const zapatasSchema = new Schema({
     _id: { type: Number },
-    // ip: {
-    //     type: String,
-    //     default: ip.address()
-    //     },
+    ip: {
+        type: String,
+        default: ip.address()
+        },
     pesoSuelo: { type: Number, required: true},
     pesoConcreto: { type: Number, required: true},
     diametroAcero: { type: Number, required: true},
