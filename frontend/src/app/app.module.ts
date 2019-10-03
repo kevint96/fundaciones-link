@@ -23,6 +23,7 @@ import { ResultadoComponent } from './components/resultado/resultado.component';
 import { ZapatasComponent } from './components/zapatas/zapatas.component';
 import { PedestalComponent } from './components/pedestal/pedestal.component';
 import { SeleccionarZapataComponent } from './components/seleccionar-zapata/seleccionar-zapata.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 
 
@@ -34,7 +35,8 @@ import { SeleccionarZapataComponent } from './components/seleccionar-zapata/sele
     ResultadoComponent,
     ZapatasComponent,
     PedestalComponent,
-    SeleccionarZapataComponent
+    SeleccionarZapataComponent,
+    InicioComponent
   ],
   imports: [
     NgbModule,

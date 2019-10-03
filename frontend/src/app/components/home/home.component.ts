@@ -490,7 +490,7 @@ export class HomeComponent implements OnInit {
           console.log("X es igual a null!");
           swal("Error!", "No se han cargado ningún dato inicial!", "error");
 
-          setTimeout(() => this.router.navigate(['/about']), 3000);
+          setTimeout(() => this.router.navigate(['/about']), 1000);
         }
         else if (x == -1) {
           console.log("X es igual a -1");
