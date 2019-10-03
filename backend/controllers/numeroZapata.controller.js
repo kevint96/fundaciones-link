@@ -1,12 +1,16 @@
 const NumeroZapata = require('../models/numeroZapata');
 const fetch = require('node-fetch');
+var myIp = require('ip');
 
 const numeroZapataCtrl = {};
 
 var listaNumeroZapatas = [];
 
 numeroZapataCtrl.getDatos = async (req, res, next) => {
-    const NumeroZapata = await NumeroZapata.find();
+
+    var ip = myIp.address();
+
+    const NumeroZapata = await NumeroZapata.find({ ip: ip });
     listaCargas = NumeroZapata;
     var tamaño = listaCargas.length;
     res.json({
@@ -19,62 +23,43 @@ numeroZapataCtrl.getDatos = async (req, res, next) => {
 //Metodo para vaciar las zapatas!
 numeroZapataCtrl.getNumeroZapata = async (req, res, next) => {
 
-    const url = "https://jsonip.com/?callback";
-    const getData = async url => {
-        try {
-            const response = await fetch(url);
-            const json = await response.json();
-            console.log("RESP EXCEL NUMERO ZAPATA CONTROLLER: ", json.ip);
-            var ip = json.ip;
+    var ip = myIp.address();
 
-            const numeroZapata = await NumeroZapata.find()
-            listaNumeroZapatas = numeroZapata;
-            // await NumeroZapata.remove();
-            res.json(listaNumeroZapatas[listaNumeroZapatas.length - 1]);
+    const numeroZapata = await NumeroZapata.find({ ip: ip });
 
-        } catch (error) {
-            console.log(error);
-        }
-    };
-    getData(url);
-
-    ////console.log("ultima: " + listaNumeroZapatas[listaNumeroZapatas.length - 1]);
-    ////console.log("Tamaño: " + listaNumeroZapatas.length);
-    // ////console.log("Lista:" + listaNumeroZapatas);
+    listaNumeroZapatas = numeroZapata;
+    // await NumeroZapata.remove();
+    res.json(listaNumeroZapatas[listaNumeroZapatas.length - 1]);
 };
 
 
 
 numeroZapataCtrl.guardarNumeroZapata = async (req, res, next) => {
 
-    var ip = req.body.ip;
+    // var ip = req.body.ip;
+    
 
-    const num = await NumeroZapata.find();
+    var ip = myIp.address();
+
+    const num = await NumeroZapata.find({ ip: ip });
+
+
+    // const num = await NumeroZapata.find();
     listaNumeroZapatas = num;
 
     if (listaNumeroZapatas.length != 0) {
         //Se elimina todos los datos de mongoDB
-        await NumeroZapata.remove();
+        // await NumeroZapata.remove();
+        await NumeroZapata.deleteMany({ ip: ip })
     }
 
     const numeroZapata = new NumeroZapata({
         // "createdAt": new Date(),
-        numeroZapata: req.body.numeroZapata,
-        ip: req.body.ip
+        numeroZapata: req.body.numeroZapata
     });
 
     //Se guarda el nuevo dato en mongoDB
     await numeroZapata.save();
-
-    // const m = await NumeroZapata.find({"_id":"5d615037134e6621d84d149a"});
-
-    //siempre poner el await
-
-    //Se modifica datos de mongoDB
-    // const j = await NumeroZapata.update({_id: '5d615037134e6621d84d149a'}, {$set: {NumeroZapata: req.body.NumeroZapata}});
-
-    ////console.log("Entro por aqui num zapata!!!");
-    ////console.log(req.body.numeroZapata);
 
 }
 module.exports = numeroZapataCtrl;

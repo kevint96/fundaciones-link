@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+var ip = require('ip');
 
 
 const resultadosSchema = new Schema({
     _id: { type: Number },
-    ip: {type: String},
+    ip: { type: String },
     pesoSuelo: { type: Number, required: true },
     pesoConcreto: { type: Number, required: true },
     diametroAcero: { type: Number, required: true },
@@ -85,7 +86,11 @@ const resultadosSchema = new Schema({
     createAt: {
         type: Date,
         default: Date.now(),
-        index: { expires: 60*5 } //设置验证码的有效时间为 10 分钟
+        index: { expires: 60 * 5 } //设置验证码的有效时间为 10 分钟
+    },
+    ip: {
+        type: String,
+        default: ip.address()
     }
 });
 
