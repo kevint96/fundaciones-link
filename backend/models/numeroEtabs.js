@@ -10,7 +10,7 @@ const numeroEtabsSchema = new Schema({
     createAt: {
         type: Date,
         default: Date.now(),
-        index: { expires: 60 * 10 } //设置验证码的有效时间为 10 分钟
+        index: { expires: 86400 } //设置验证码的有效时间为 10 分钟
     },
     ip: {
         type: String,
