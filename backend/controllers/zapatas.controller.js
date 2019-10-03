@@ -42,7 +42,7 @@ zapatasCtrl.darZapata = async (req, res, next) => {
 
     var ip = ip.address();
 
-    const zapatas = await Zapatas.find({ ip: ip })
+    const zapatas = await Zapatas.find();
     listazapatas = zapatas;
     // await Zapatas.remove();
     var tamaño = listazapatas.length;
@@ -60,7 +60,7 @@ zapatasCtrl.darZapata = async (req, res, next) => {
     //         console.log("RESP: ", json.ip);
     //         var ip = json.ip;
 
-    //         const zapatas = await Zapatas.find({ ip: ip })
+    //         const zapatas = await Zapatas.find();
     //         listazapatas = zapatas;
     //         // await Zapatas.remove();
     //         var tamaño = listazapatas.length;
@@ -84,7 +84,7 @@ zapatasCtrl.seleccionarZapata = async (req, res, next) => {
 
     var ip = ip.address();
 
-    const zapatas = await Zapatas.find({ ip: ip })
+    const zapatas = await Zapatas.find();
     var numero = req.body.numeroZapata;
     listazapatas = zapatas;
     res.json(listazapatas[numero]);
@@ -97,7 +97,7 @@ zapatasCtrl.seleccionarZapata = async (req, res, next) => {
     //         console.log("RESP seleccionar zapata: ", json.ip);
     //         var ip = json.ip;
 
-    //         const zapatas = await Zapatas.find({ ip: ip })
+    //         const zapatas = await Zapatas.find();
     //         var numero = req.body.numeroZapata;
     //         listazapatas = zapatas;
     //         res.json(listazapatas[numero]);
@@ -114,7 +114,7 @@ zapatasCtrl.darBases = async (req, res, next) => {
 
     var ip = ip.address();
 
-    const bases = await Bases.find({ ip: ip })
+    const bases = await Bases.find();
     listaBases = bases;
     res.json(listaBases.length - 1);
 
@@ -126,7 +126,7 @@ zapatasCtrl.darBases = async (req, res, next) => {
     //         console.log("RESP dar bases: ", json.ip);
     //         var ip = json.ip;
 
-    //         const bases = await Bases.find({ ip: ip })
+    //         const bases = await Bases.find();
     //         listaBases = bases;
     //         res.json(listaBases.length - 1);
 
@@ -150,7 +150,7 @@ zapatasCtrl.getZapatas = async (req, res, next) => {
 
     var ip = ip.address();
 
-    const zapatas = await Zapatas.find({ ip: ip });
+    const zapatas = await Zapatas.find();;
     res.json(zapatas);
 
     // await Zapatas.remove();
@@ -165,7 +165,7 @@ zapatasCtrl.getZapatas = async (req, res, next) => {
     //         console.log("RESP: ", json.ip);
     //         var ip = json.ip;
 
-    //         const zapatas = await Zapatas.find({ ip: ip });
+    //         const zapatas = await Zapatas.find();;
     //         res.json(zapatas);
 
     //         // await Zapatas.remove();
@@ -186,7 +186,7 @@ zapatasCtrl.eliminarZapatas = async (req, res, next) => {
 
     var ip = ip.address();
 
-    const zapatas = await Zapatas.find({ ip: ip })
+    const zapatas = await Zapatas.find();
     listazapatas = zapatas;
 
 
@@ -206,7 +206,7 @@ zapatasCtrl.eliminarZapatas = async (req, res, next) => {
     //         console.log("RESP eliminarZapatas!: ", json.ip);
     //         var ip = json.ip;
 
-    //         const zapatas = await Zapatas.find({ ip: ip })
+    //         const zapatas = await Zapatas.find();
     //         listazapatas = zapatas;
 
 
@@ -234,7 +234,7 @@ zapatasCtrl.bases = async (req, res, next) => {
 
     //
 
-    const zapatas = await Zapatas.find({ ip: ip })
+    const zapatas = await Zapatas.find();
     listazapatas = zapatas;
 
 
@@ -267,13 +267,13 @@ zapatasCtrl.bases = async (req, res, next) => {
 
     if (numeroEtabs < 0) {
         //Datos que se traen de la ultima carga de etabs excel
-        const excel = await Excel.find({ ip: ip })
+        const excel = await Excel.find();
         listaCargas = excel;
         var listaEtabs = listaCargas[listaCargas.length - 1];
     }
     else {
         //Datos que se traen de las cargas de etabs excel
-        const excel = await Excel.find({ ip: ip })
+        const excel = await Excel.find();
         listaCargas = excel;
         var listaEtabs = listaCargas[numeroEtabs];
     }
@@ -418,7 +418,7 @@ zapatasCtrl.bases = async (req, res, next) => {
 
     //         //
 
-    //         const zapatas = await Zapatas.find({ ip: ip })
+    //         const zapatas = await Zapatas.find();
     //         listazapatas = zapatas;
 
 
@@ -451,13 +451,13 @@ zapatasCtrl.bases = async (req, res, next) => {
 
     //         if (numeroEtabs < 0) {
     //             //Datos que se traen de la ultima carga de etabs excel
-    //             const excel = await Excel.find({ ip: ip })
+    //             const excel = await Excel.find();
     //             listaCargas = excel;
     //             var listaEtabs = listaCargas[listaCargas.length - 1];
     //         }
     //         else {
     //             //Datos que se traen de las cargas de etabs excel
-    //             const excel = await Excel.find({ ip: ip })
+    //             const excel = await Excel.find();
     //             listaCargas = excel;
     //             var listaEtabs = listaCargas[numeroEtabs];
     //         }
