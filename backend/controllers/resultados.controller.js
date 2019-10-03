@@ -8,7 +8,7 @@ var listaResultados = [];
 
 resultadosCtrl.getDatos = async (req, res, next) => {
 
-    var ip = myip.address('public',"ipv4");
+    var ip = myIp.address('public',"ipv4");
 
 
     const resultados = await Resultados.find({ ip: ip })
@@ -24,7 +24,7 @@ resultadosCtrl.getDatos = async (req, res, next) => {
 //Metodo para vaciar resultados!
 resultadosCtrl.getResultados = async (req, res, next) => {
 
-    var ip = myip.address('public',"ipv4");
+    var ip = myIp.address('public',"ipv4");
 
     const resultados = await Resultados.find({ ip: ip })
     listaResultados = resultados;
@@ -35,7 +35,7 @@ resultadosCtrl.getResultados = async (req, res, next) => {
 
 resultadosCtrl.eliminarResultado = async (req, res, next) => {
 
-    var ip = myip.address('public',"ipv4");
+    var ip = myIp.address('public',"ipv4");
     
     const resultados = await Resultados.find({ ip: ip })
     listaResultados = resultados;
@@ -49,7 +49,7 @@ resultadosCtrl.eliminarResultado = async (req, res, next) => {
 
 resultadosCtrl.guardarResultadosPedestal = async (req, res, next) => {
 
-    var ip = myip.address('public',"ipv4");
+    var ip = myIp.address('public',"ipv4");
 
     const resultados = await Resultados.find({ ip: ip })
     listaResultados = resultados;
@@ -118,7 +118,7 @@ resultadosCtrl.guardarResultadosPedestal = async (req, res, next) => {
 
 resultadosCtrl.guardarResultados = async (req, res, next) => {
 
-    var ip = myip.address('public',"ipv4");
+    var ip = myIp.address('public',"ipv4");
 
     const num = await Resultados.find({ ip: ip })
     listaresultados = num;

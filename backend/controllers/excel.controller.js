@@ -12,7 +12,7 @@ var listaEtabs = [];
 excelCtrl.getDatos = async (req, res, next) => {
     // const excel = await Excel.find({ip: "179.32.95.93"})
 
-    var ip = myip.address('public',"ipv4");
+    var ip = myIp.address('public',"ipv4");
 
 
     const excel = await Excel.find({ ip: ip })
@@ -29,7 +29,7 @@ excelCtrl.getDatos = async (req, res, next) => {
 
 excelCtrl.getCargaEstablecida = async (req, res, next) => {
 
-    var ip = myip.address('public',"ipv4");
+    var ip = myIp.address('public',"ipv4");
 
     const excel = await Excel.find({ ip: ip })
     listaCargas = excel;
@@ -40,7 +40,7 @@ excelCtrl.getCargaEstablecida = async (req, res, next) => {
 
 excelCtrl.getNumeroEtabs = async (req, res, next) => {
 
-    var ip = myip.address('public',"ipv4");
+    var ip = myIp.address('public',"ipv4");
 
     const excel = await Excel.find({ ip: ip })
     listaEtabs = excel;
@@ -50,7 +50,7 @@ excelCtrl.getNumeroEtabs = async (req, res, next) => {
 
 excelCtrl.seleccionarCarga = async (req, res, next) => {
 
-    var ip = myip.address('public',"ipv4");
+    var ip = myIp.address('public',"ipv4");
 
     const excel = await Excel.find({ ip: ip })
     var numero = req.body.numeroCarga;

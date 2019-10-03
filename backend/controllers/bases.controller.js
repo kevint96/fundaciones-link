@@ -44,7 +44,7 @@ basesCtrl.calcular = async (req, res, next) => {
 
     //Datos que se traen de las zapatas
 
-    var ip = myip.address('public',"ipv4");
+    var ip = myIp.address('public',"ipv4");
 
     const zapatas = await Zapatas.find({ ip: ip })
     listazapatas = zapatas;
@@ -327,7 +327,7 @@ basesCtrl.calcular = async (req, res, next) => {
 //Metodo para vaciar bases!
 basesCtrl.getDatos = async (req, res, next) => {
 
-    var ip = myip.address('public',"ipv4");
+    var ip = myIp.address('public',"ipv4");
 
     const bases = await Bases.find({ ip: ip })
     listaBases = bases;
