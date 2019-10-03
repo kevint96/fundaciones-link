@@ -42,7 +42,7 @@ zapatasCtrl.darZapata = async (req, res, next) => {
 
     //         const zapatas = await Zapatas.find({ ip: ip })
 
-    const zapatas = await Zapatas.findOne();
+    const zapatas = await Zapatas.find();
     listazapatas = zapatas;
     // await Zapatas.remove();
     var tamaño = listazapatas.length;
