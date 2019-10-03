@@ -346,11 +346,11 @@ zapatasCtrl.agregarBases = async (req, res, next) => {
 
 zapatasCtrl.sumar = async (req, res, next) => {
 
-    var ip = myIp.address();
+    // var ip = myIp.address();
 
-    const num = await Zapatas.findOne({ ip: ip })
+    // const num = await Zapatas.findOne({ ip: ip })
 
-    // const num = await Zapatas.find();
+    const num = await Zapatas.find();
     listaZapatas = num;
 
     var id;
