@@ -1,12 +1,16 @@
 const NumeroEtabs = require('../models/numeroEtabs');
 const fetch = require('node-fetch');
+var myIp = require('ip');
 
 const numeroEtabsCtrl = {};
 
 var listaEtabs = [];
 
 numeroEtabsCtrl.getDatos = async (req, res, next) => {
-    const numeroEtabs = await NumeroEtabs.find();
+
+    var ip = myIp.address();
+
+    const numeroEtabs = await NumeroEtabs.find({ ip: ip });
     listaCargas = numeroEtabs;
     var tamaño = listaCargas.length;
     res.json({
@@ -19,48 +23,37 @@ numeroEtabsCtrl.getDatos = async (req, res, next) => {
 //Metodo para vaciar numero Etabs!
 numeroEtabsCtrl.getNumeroEtabs = async (req, res, next) => {
 
+    var ip = myIp.address();
 
-    const url = "https://jsonip.com/?callback";
-    const getData = async url => {
-        try {
-            const response = await fetch(url);
-            const json = await response.json();
-            console.log("RESP EXCEL NUMERO ETABS CONTROLLER: ", json.ip);
-            var ip = json.ip;
+    const numeroEtabs = await NumeroEtabs.find({ ip: ip })
+    listaEtabs = numeroEtabs;
+    // await NumeroEtabs.remove();
+    res.json(listaEtabs[listaEtabs.length - 1]);
 
-            const numeroEtabs = await NumeroEtabs.find({ ip: ip })
-            listaEtabs = numeroEtabs;
-            // await NumeroEtabs.remove();
-            res.json(listaEtabs[listaEtabs.length - 1]);
 
-        } catch (error) {
-            console.log(error);
-        }
-    };
-    getData(url);
-    ////console.log("ultima: " + listaEtabs[listaEtabs.length - 1]);    
-    ////console.log("Tamaño: " + listaEtabs.length);
-    // ////console.log("Lista:" + listaEtabs);
 };
 
 
 
 numeroEtabsCtrl.guardarNumeroEtabs = async (req, res, next) => {
 
+    var ip = myIp.address();
 
-    const num = await NumeroEtabs.find();
+    // const num = await NumeroZapata.find({ ip: ip });
+
+    const num = await NumeroEtabs.find({ ip: ip });
     listaNumeroEtabs = num;
 
     if (listaNumeroEtabs.length != 0) {
         //Se elimina todos los datos de mongoDB
-        await NumeroEtabs.remove();
+        // await NumeroEtabs.remove();
+        await NumeroEtabs.deleteMany({ ip: ip })
     }
 
     const numeroEtabs = new NumeroEtabs({
         // "createdAt": new Date(),
         numeroEtabs: req.body.numeroEtabs,
-        irPedestal: req.body.irPedestal,
-        ip: req.body.ip
+        irPedestal: req.body.irPedestal
     });
 
     //Se guarda el nuevo dato en mongoDB

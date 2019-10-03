@@ -268,7 +268,7 @@ export class HomeComponent implements OnInit {
     this.zapatasService.postExcel(excel)
       .subscribe(res => {
         // //console.log("Se agrego correctamente!");
-        //console.log("Aqui se esta enviando el res:", res);
+        console.log("Guardar datos excel zapata:", res);
 
       });
 
