@@ -2,6 +2,7 @@ const Zapatas = require('../models/zapatas');
 const Excel = require('../models/excel');
 const Bases = require('../models/bases');
 const Funciones = require('../funciones/funcionesZapatas')
+var myIp = require('ip');
 
 
 const zapatasCtrl = {};
@@ -37,14 +38,19 @@ var Vcon = [];
 //Se devuelve la zapata actual, la ultima
 //Metodo para vaciar zapatas!
 zapatasCtrl.darZapata = async (req, res, next) => {
-    const zapatas = await Zapatas.find();
+
+    var ip = myIp.address();
+
+
+    const zapatas = await Zapatas.find({ ip: ip });
     listazapatas = zapatas;
     // await Zapatas.remove();
     var tamaño = listazapatas.length;
     res.json({
         cantidad: tamaño,
         listaZapatas: listazapatas,
-        ultimaZapata: listazapatas[listazapatas.length - 1]
+        ultimaZapata: listazapatas[listazapatas.length - 1],
+        status: 'Se devolvieron los datos zapata!!'
     });
     // darListaZapata();
     ////console.log("Lista de zapatas:",listazapatas[listazapatas.length - 1]);
