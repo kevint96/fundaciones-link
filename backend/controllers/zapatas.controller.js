@@ -242,10 +242,10 @@ zapatasCtrl.bases = async (req, res, next) => {
     Ay = Funciones.darAreaAceroAy(Mdx, listaBaseE, listaBaseBy);
     Asx = Funciones.darSepCabillasAsx(lista.diametroAcero, listaBaseBy, Ax);
     Asy = Funciones.darSepCabillasAsy(lista.diametroAcero, listaBaseBx, Ay);
-    Vx = Funciones.darDiseñoPorCorteVx(QMax, QMin, listaBaseBy, listaBaseBx, listaBaseCx, listaBaseE);
-    Vy = Funciones.darDiseñoPorCorteVy(QMax, QMin, listaBaseBy, listaBaseBx, listaBaseCy, listaBaseE);
+    Vx = Funciones.darDiseñoPorCorteVx(QMax, QMin, listaBaseBy, listaBaseBx, listaBaseCx, listaBaseE, lista.factorMayoracionUsuario);
+    Vy = Funciones.darDiseñoPorCorteVy(QMax, QMin, listaBaseBy, listaBaseBx, listaBaseCy, listaBaseE, lista.factorMayoracionUsuario);
     Vc = Funciones.darDiseñoPorCorteVc(listaBaseBx, lista.pesoConcreto);
-    Vpuz = Funciones.darPunzonadoVpuz(QMax, QMin, listaBaseBx, listaBaseBy, listaBaseCx, listaBaseE, listaBaseCy);
+    Vpuz = Funciones.darPunzonadoVpuz(QMax, QMin, listaBaseBx, listaBaseBy, listaBaseCx, listaBaseE, listaBaseCy,lista.factorMayoracionUsuario);
     Vcon = Funciones.darPunzonadoVcon(QMax, lista.pesoConcreto);
     //console.log("listapesoZapata :", listaPesoZapata);
     //console.log("listapesoPedestal :", listaPesoPedestal);

@@ -305,12 +305,12 @@ funciones.darSepCabillasAsy = function (A,Bx,Ay) {
     return lista;
 }
 
-funciones.darDiseñoPorCorteVx = function (Qmax,Qmin,By,Bx,Cx,e,) { 
+funciones.darDiseñoPorCorteVx = function (Qmax,Qmin,By,Bx,Cx,e,fm) { 
     var resultado =0;
     var lista = [];
     lista.length= 0;
     for (let i = 0; i < Qmax.length; i++) {
-        resultado = parseFloat((Math.max(Qmax[i],Qmin[i]) * By[i] * ((Bx[i] - Cx[i] ) / 2 - (e[i] - 0.07)) * 1.6) / 0.75 / By[i] / (e[i] - 0.07) / 10000);
+        resultado = parseFloat((Math.max(Qmax[i],Qmin[i]) * By[i] * ((Bx[i] - Cx[i] ) / 2 - (e[i] - 0.07)) * fm) / 0.75 / By[i] / (e[i] - 0.07) / 10000);
         resultado = Math.round(resultado*100)/100;
         //console.log(i,"El resultado de VX: ", "parseFloat((Math.max(Qmax[i],Qmin[i]) * By[i] * ((Bx[i] - Cx[i] / 2) - (e[i] - 0.07) * 1.6)) / 0.75 * By[i] * (e[i] - 0.07) * 10000)", resultado);
         lista.push(resultado);
@@ -318,12 +318,12 @@ funciones.darDiseñoPorCorteVx = function (Qmax,Qmin,By,Bx,Cx,e,) {
     return lista;
 }
 
-funciones.darDiseñoPorCorteVy = function (Qmax,Qmin,By,Bx,Cy,e,) { 
+funciones.darDiseñoPorCorteVy = function (Qmax,Qmin,By,Bx,Cy,e,fm) { 
     var resultado =0;
     var lista = [];
     lista.length= 0;
     for (let i = 0; i < Qmax.length; i++) {
-        resultado = parseFloat((Math.max(Qmax[i],Qmin[i]) * Bx[i] * ((By[i] - Cy[i] ) / 2 - (e[i] - 0.07)) * 1.6) / 0.75 / Bx[i] / (e[i] - 0.07) / 10000);
+        resultado = parseFloat((Math.max(Qmax[i],Qmin[i]) * Bx[i] * ((By[i] - Cy[i] ) / 2 - (e[i] - 0.07)) * fm) / 0.75 / Bx[i] / (e[i] - 0.07) / 10000);
         resultado = Math.round(resultado*100)/100;
         //console.log(i,"El resultado de VY: ", "parseFloat((Math.max(Qmax[i],Qmin[i]) * By[i] * ((Bx[i] - Cx[i] / 2) - (e[i] - 0.07) * 1.6)) / 0.75 * By[i] * (e[i] - 0.07) * 10000)", resultado);
         lista.push(resultado);
@@ -347,12 +347,12 @@ funciones.darDiseñoPorCorteVc = function (bx,pesoConcreto) {
     return lista;
 }
 
-funciones.darPunzonadoVpuz = function (Qmax,Qmin,Bx,By,Cx,e,Cy,) { 
+funciones.darPunzonadoVpuz = function (Qmax,Qmin,Bx,By,Cx,e,Cy,fm) { 
     var resultado =0;
     var lista = [];
     lista.length= 0;
     for (let i = 0; i < Qmax.length; i++) {
-        resultado = parseFloat(Math.max(Qmax[i],Qmin[i]) * 1.6 * (Bx[i] * By[i] - ((Cx[i] + e[i] - 0.07) * (Cy[i] + e[i] - 0.07))) / 0.75 / 2 / (Cx[i] + Cy[i] + (e[i] -0.07)) / 10000 / (e[i]-0.07));
+        resultado = parseFloat(Math.max(Qmax[i],Qmin[i]) * fm * (Bx[i] * By[i] - ((Cx[i] + e[i] - 0.07) * (Cy[i] + e[i] - 0.07))) / 0.75 / 2 / (Cx[i] + Cy[i] + (e[i] -0.07)) / 10000 / (e[i]-0.07));
         resultado = Math.round(resultado*100)/100;
         //console.log(i,"El resultado de vPUZ: ", "parseFloat(Math.max(Qmax[i],Qmin[i]) * 1.6 * (Bx[i] * By[i] - ((Cx[i] + (e[i] - 0.007)) * (Cy[i]+ (e[i] - 0.007)))) / 0.75 * 2 * (Cx[i] + Cy[i] + (e[i] -0.07)) * 10000 * (e-0.07));", resultado);
         lista.push(resultado);
