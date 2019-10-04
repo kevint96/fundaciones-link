@@ -24,6 +24,7 @@ import { ZapatasComponent } from './components/zapatas/zapatas.component';
 import { PedestalComponent } from './components/pedestal/pedestal.component';
 import { SeleccionarZapataComponent } from './components/seleccionar-zapata/seleccionar-zapata.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { AcercadeComponent } from './components/acercade/acercade.component';
 
 
 
@@ -36,7 +37,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
     ZapatasComponent,
     PedestalComponent,
     SeleccionarZapataComponent,
-    InicioComponent
+    InicioComponent,
+    AcercadeComponent
   ],
   imports: [
     NgbModule,
